@@ -17,22 +17,22 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/">
-            <a className="flex items-center space-x-2 hover-elevate px-2 py-1 rounded-md transition-all duration-200" data-testid="link-home">
+            <div className="flex items-center space-x-2 hover-elevate px-2 py-1 rounded-md transition-all duration-200 cursor-pointer" data-testid="link-home">
               <div className="text-xl font-bold text-primary">WestGroup</div>
-            </a>
+            </div>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
-                <a
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                <span
+                  className={`text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                     location === item.path ? 'text-primary' : 'text-muted-foreground'
                   }`}
                   data-testid={`link-nav-${item.label.toLowerCase()}`}
                 >
                   {item.label}
-                </a>
+                </span>
               </Link>
             ))}
           </div>
@@ -62,15 +62,15 @@ export default function Navigation() {
           <div className="px-4 py-4 space-y-4">
             {navItems.map((item) => (
               <Link key={item.path} href={item.path}>
-                <a
-                  className={`block text-sm font-medium transition-colors hover:text-primary ${
+                <span
+                  className={`block text-sm font-medium transition-colors hover:text-primary cursor-pointer ${
                     location === item.path ? 'text-primary' : 'text-muted-foreground'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                   data-testid={`link-mobile-${item.label.toLowerCase()}`}
                 >
                   {item.label}
-                </a>
+                </span>
               </Link>
             ))}
             <a href="tel:6045889688" className="block text-sm text-muted-foreground hover:text-primary" data-testid="link-mobile-phone">

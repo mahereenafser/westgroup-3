@@ -61,11 +61,11 @@ export default function Services() {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      <section className="py-20 md:py-32 bg-gradient-to-br from-background via-background to-muted/20">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-primary/30 via-primary/15 to-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-block mb-6">
-              <div className="px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary" data-testid="text-services-badge">
+              <div className="px-4 py-2 bg-card rounded-full text-sm font-medium text-foreground border border-border" data-testid="text-services-badge">
                 Comprehensive Financial Planning
               </div>
             </div>
@@ -102,8 +102,8 @@ export default function Services() {
                 >
                   <AccordionTrigger className="hover:no-underline">
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-5 h-5 text-primary" />
+                      <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-5 h-5 text-foreground" />
                       </div>
                       <span className="text-lg font-semibold text-left">{service.title}</span>
                     </div>
@@ -112,7 +112,7 @@ export default function Services() {
                     <ul className="space-y-2 mt-4 ml-14">
                       {service.items.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start gap-2 text-muted-foreground">
-                          <span className="text-primary mt-1">•</span>
+                          <span className="text-foreground mt-1">•</span>
                           <span>{item}</span>
                         </li>
                       ))}

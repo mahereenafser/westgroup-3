@@ -48,8 +48,8 @@ export default function StatsSection() {
               <Card key={index} className="text-center hover-elevate transition-all duration-200" data-testid={`card-stat-${index}`}>
                 <CardContent className="pt-8 pb-8">
                   <div className="flex justify-center mb-4">
-                    <div className={`w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center ${stat.color}`}>
-                      <Icon className="w-6 h-6" />
+                    <div className="w-12 h-12 rounded-full bg-muted flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-foreground" />
                     </div>
                   </div>
                   <div className={`text-4xl font-bold mb-2 ${stat.color}`} data-testid={`text-stat-value-${index}`}>

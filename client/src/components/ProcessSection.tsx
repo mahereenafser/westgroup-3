@@ -47,11 +47,11 @@ export default function ProcessSection() {
               <div key={step.number} className="relative" data-testid={`card-process-${step.number}`}>
                 <div className="flex flex-col items-center text-center space-y-4">
                   <div className="relative">
-                    <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-2xl font-bold shadow-lg">
+                    <div className="w-20 h-20 rounded-full bg-foreground flex items-center justify-center text-background text-2xl font-bold shadow-lg">
                       {step.number}
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-ring/20 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-foreground" />
                     </div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>

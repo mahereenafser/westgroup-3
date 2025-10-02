@@ -28,7 +28,7 @@ export default function DesignationsSection() {
               data-testid={`card-designation-${index}`}
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
+                <div className="text-3xl font-bold text-foreground mb-2 group-hover:scale-110 transition-transform">
                   {designation.abbr}
                 </div>
                 <div className="text-sm text-muted-foreground">{designation.full}</div>

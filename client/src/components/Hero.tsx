@@ -4,19 +4,18 @@ import dashboardImage from '@assets/generated_images/Wealth_management_dashboard
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-muted/20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-block">
-              <div className="px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary" data-testid="text-badge">
+              <div className="px-4 py-2 bg-card rounded-full text-sm font-medium text-foreground border border-border" data-testid="text-badge">
                 Fee-Only Fiduciary Advisors
               </div>
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight tracking-tight" data-testid="text-hero-title">
-              Build Wealth{' '}
-              <span className="text-primary">Beyond Limits</span>
+              Build Wealth Beyond Limits
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl" data-testid="text-hero-description">
@@ -33,17 +32,17 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50">
               <div>
-                <div className="text-3xl font-bold text-primary" data-testid="text-stat-clients">3000+</div>
+                <div className="text-3xl font-bold text-foreground" data-testid="text-stat-clients">3000+</div>
                 <div className="text-sm text-muted-foreground">Clients Served</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary" data-testid="text-stat-rating">A+</div>
+                <div className="text-3xl font-bold text-foreground" data-testid="text-stat-rating">A+</div>
                 <div className="text-sm text-muted-foreground">BBB Rating</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary" data-testid="text-stat-experience">25+</div>
+                <div className="text-3xl font-bold text-foreground" data-testid="text-stat-experience">25+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
             </div>
