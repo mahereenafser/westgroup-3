@@ -4,8 +4,8 @@ import dashboardImage from '@assets/generated_images/Wealth_management_dashboard
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-block">
@@ -48,14 +48,15 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative lg:block" data-testid="img-hero-dashboard">
-            <div className="relative transform hover:scale-105 transition-transform duration-500">
+          <div className="relative lg:block mt-12 lg:mt-20" data-testid="img-hero-dashboard">
+            <div className="relative transform hover:scale-105 transition-transform duration-500 scale-125 lg:scale-150">
               <img
                 src={dashboardImage}
                 alt="Wealth Management Dashboard"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl border-4 border-primary/30"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-primary/20 to-accent/30 rounded-2xl mix-blend-multiply"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-green-400/10 rounded-2xl"></div>
             </div>
           </div>
         </div>
