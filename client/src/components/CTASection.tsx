@@ -38,8 +38,8 @@ export default function CTASection() {
           {/* Left Column - Image */}
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&h=600&fit=crop"
-              alt="Financial Consultation"
+              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop"
+              alt="Corporate Financial Consultation"
               className="w-full h-full object-cover"
             />
           </div>
