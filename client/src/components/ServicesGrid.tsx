@@ -57,43 +57,43 @@ export default function ServicesGrid() {
           </p>
         </div>
 
-        <div className="relative rounded-3xl overflow-hidden p-8 md:p-12">
-          {/* Background image */}
-          <div
-            className="absolute inset-0 bg-cover bg-center z-0"
-            style={{
-              backgroundImage: 'url(/images/money-1.jpg)',
-            }}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <Card
+                key={index}
+                className="hover-elevate active-elevate-2 transition-all duration-200 cursor-pointer group relative overflow-hidden"
+                data-testid={`card-service-${index}`}
+              >
+                {/* Background image */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center z-0"
+                  style={{
+                    backgroundImage: 'url(/images/money-1.jpg)',
+                  }}
+                />
 
-          {/* Very dark blackish emerald green overlay */}
-          <div className="absolute inset-0 bg-[#051910] opacity-70 z-[1]" />
+                {/* Dark green overlay #09342B */}
+                <div className="absolute inset-0 bg-[#09342B] opacity-85 z-[1]" />
 
-          {/* Content */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <Card
-                  key={index}
-                  className="hover-elevate active-elevate-2 transition-all duration-200 cursor-pointer group bg-card/95 backdrop-blur-sm"
-                  data-testid={`card-service-${index}`}
-                >
+                {/* Content */}
+                <div className="relative z-10">
                   <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/40 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 rounded-lg bg-[#12664F]/30 flex items-center justify-center mb-4 group-hover:bg-[#12664F]/50 transition-colors backdrop-blur-sm">
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl text-white">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-sm leading-relaxed">
+                    <CardDescription className="text-sm leading-relaxed text-white/80">
                       {service.description}
                     </CardDescription>
                   </CardContent>
-                </Card>
-              );
-            })}
-          </div>
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
