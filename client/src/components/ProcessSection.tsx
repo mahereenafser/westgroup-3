@@ -1,70 +1,65 @@
 import { Search, Lightbulb, Rocket, BarChart } from 'lucide-react';
+import RadialOrbitalTimeline from '@/components/ui/radial-orbital-timeline';
 
-const steps = [
+const timelineData = [
   {
-    number: 1,
+    id: 1,
+    title: 'Discovery',
+    date: 'Step 1',
+    content: 'We start by understanding your financial goals, current situation, and long-term objectives.',
+    category: 'Analysis',
     icon: Search,
-    title: 'Discovery & Analysis',
-    description: 'We start by understanding your financial goals, current situation, and long-term objectives.',
+    relatedIds: [2],
+    status: 'completed' as const,
+    energy: 100,
   },
   {
-    number: 2,
+    id: 2,
+    title: 'Strategy',
+    date: 'Step 2',
+    content: 'Our experts craft a personalized financial plan tailored to your unique needs and circumstances.',
+    category: 'Planning',
     icon: Lightbulb,
-    title: 'Strategy Development',
-    description: 'Our experts craft a personalized financial plan tailored to your unique needs and circumstances.',
+    relatedIds: [1, 3],
+    status: 'in-progress' as const,
+    energy: 85,
   },
   {
-    number: 3,
-    icon: Rocket,
+    id: 3,
     title: 'Implementation',
-    description: 'We put your plan into action with precision and care, coordinating all necessary steps.',
+    date: 'Step 3',
+    content: 'We put your plan into action with precision and care, coordinating all necessary steps.',
+    category: 'Action',
+    icon: Rocket,
+    relatedIds: [2, 4],
+    status: 'in-progress' as const,
+    energy: 70,
   },
   {
-    number: 4,
+    id: 4,
+    title: 'Management',
+    date: 'Step 4',
+    content: 'Regular reviews and adjustments ensure your plan stays aligned with your evolving goals.',
+    category: 'Ongoing',
     icon: BarChart,
-    title: 'Ongoing Management',
-    description: 'Regular reviews and adjustments ensure your plan stays aligned with your evolving goals.',
+    relatedIds: [3],
+    status: 'pending' as const,
+    energy: 60,
   },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-process-title">
-            Our Proven 4-Step Process
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-process-description">
-            A systematic approach to building and preserving your wealth
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step) => {
-            const Icon = step.icon;
-            return (
-              <div key={step.number} className="relative" data-testid={`card-process-${step.number}`}>
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="relative">
-                    <div className="w-20 h-20 rounded-full bg-foreground flex items-center justify-center text-background text-2xl font-bold shadow-lg">
-                      {step.number}
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-foreground" />
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
-                </div>
-                {step.number < 4 && (
-                  <div className="hidden lg:block absolute top-10 left-[60%] w-full h-0.5 bg-border -z-10"></div>
-                )}
-              </div>
-            );
-          })}
-        </div>
+    <section className="py-20 bg-background">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-process-title">
+          Our Proven 4-Step Process
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-process-description">
+          A systematic approach to building and preserving your wealth
+        </p>
       </div>
+      <RadialOrbitalTimeline timelineData={timelineData} />
     </section>
   );
 }
