@@ -8,19 +8,19 @@ import { useMediaQuery } from '@/components/ui/3d-carousel';
 const awards = [
   {
     name: 'BBB A+ Rating',
-    image: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=400&fit=crop',
+    image: '/awards/bbb-accredited.webp',
   },
   {
     name: 'MDRT Top of Table',
-    image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=400&h=400&fit=crop',
+    image: '/awards/mdrt-logo.webp',
   },
   {
     name: 'ThreeBestRated',
-    image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=400&fit=crop',
+    image: '/awards/three-best-rated.webp',
   },
   {
     name: 'Consumer Choice Award',
-    image: 'https://images.unsplash.com/photo-1599507593499-a3f7d7d97667?w=400&h=400&fit=crop',
+    image: '/awards/consumer-choice.webp',
   },
 ];
 
@@ -41,9 +41,9 @@ const AwardsCarousel = memo(
     isCarouselActive: boolean;
   }) => {
     const isScreenSizeSm = useMediaQuery('(max-width: 640px)');
-    const cylinderWidth = isScreenSizeSm ? 1100 : 1800;
+    const cylinderWidth = isScreenSizeSm ? 800 : 1200;
     const faceCount = cards.length;
-    const faceWidth = cylinderWidth / faceCount;
+    const faceWidth = isScreenSizeSm ? 200 : 250;
     const radius = cylinderWidth / (2 * Math.PI);
     const rotation = useMotionValue(0);
     const transform = useTransform(rotation, (value) => `rotate3d(0, 1, 0, ${value}deg)`);
@@ -91,19 +91,21 @@ const AwardsCarousel = memo(
               }}
               onClick={() => handleClick(award, i)}
             >
-              <Card className="relative w-full h-full bg-card border-2 border-primary/20 hover:border-primary/40 transition-all overflow-hidden group">
-                <motion.img
-                  src={award.image}
-                  alt={award.name}
-                  layoutId={`img-${award.name}`}
-                  className="pointer-events-none w-full h-full rounded-xl object-cover"
-                  initial={{ filter: 'blur(4px)' }}
-                  layout="position"
-                  animate={{ filter: 'blur(0px)' }}
-                  transition={transition}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#09342B]/90 to-transparent flex items-end p-4">
-                  <h3 className="text-white font-bold text-lg">{award.name}</h3>
+              <Card className="relative w-full h-full bg-card border-2 border-primary/20 hover:border-primary/40 transition-all overflow-hidden group flex flex-col">
+                <div className="flex-1 p-4 flex items-center justify-center bg-white">
+                  <motion.img
+                    src={award.image}
+                    alt={award.name}
+                    layoutId={`img-${award.name}`}
+                    className="pointer-events-none max-w-full max-h-full object-contain"
+                    initial={{ filter: 'blur(4px)' }}
+                    layout="position"
+                    animate={{ filter: 'blur(0px)' }}
+                    transition={transition}
+                  />
+                </div>
+                <div className="p-3 bg-card border-t border-border">
+                  <h3 className="text-foreground font-semibold text-sm text-center">{award.name}</h3>
                 </div>
               </Card>
             </motion.div>
@@ -119,6 +121,24 @@ export default function TrustBadges() {
   const [isCarouselActive, setIsCarouselActive] = useState(true);
   const controls = useAnimation();
   const cards = useMemo(() => awards, []);
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isCarouselActive) {
+      interval = setInterval(() => {
+        controls.start({
+          rotateY: '-=60',
+          transition: {
+            duration: 2,
+            ease: 'linear',
+          },
+        });
+      }, 3000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isCarouselActive, controls]);
 
   const handleClick = (award: typeof awards[0]) => {
     setActiveAward(award);
@@ -182,7 +202,7 @@ export default function TrustBadges() {
             )}
           </AnimatePresence>
 
-          <div className="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-2xl">
+          <div className="relative h-[300px] md:h-[350px] w-full overflow-hidden rounded-2xl">
             <AwardsCarousel
               handleClick={handleClick}
               controls={controls}
