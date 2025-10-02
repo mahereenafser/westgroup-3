@@ -14,23 +14,23 @@ export default function StickyActionButtons() {
   };
 
   return (
-    <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-3">
+    <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-4">
       <LiquidButton
-        size="icon"
+        size="xl"
         onClick={handleCall}
-        className="shadow-lg hover:shadow-xl transition-shadow border-2 border-foreground/20"
+        className="shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all border-2 border-primary/30 bg-card/80 backdrop-blur-md"
         aria-label="Call us"
       >
-        <Phone className="h-5 w-5 text-foreground stroke-[2.5] drop-shadow-[0_0_8px_rgba(216,249,184,0.6)]" />
+        <Phone className="h-6 w-6 text-foreground stroke-[2.5] drop-shadow-[0_0_12px_rgba(216,249,184,0.8)]" />
       </LiquidButton>
 
       <LiquidButton
-        size="icon"
+        size="xl"
         onClick={handleMessage}
-        className="shadow-lg hover:shadow-xl transition-shadow border-2 border-foreground/20"
+        className="shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all border-2 border-primary/30 bg-card/80 backdrop-blur-md"
         aria-label="Send message"
       >
-        <MessageCircle className="h-5 w-5 text-foreground stroke-[2.5] drop-shadow-[0_0_8px_rgba(216,249,184,0.6)]" />
+        <MessageCircle className="h-6 w-6 text-foreground stroke-[2.5] drop-shadow-[0_0_12px_rgba(216,249,184,0.8)]" />
       </LiquidButton>
     </div>
   );
