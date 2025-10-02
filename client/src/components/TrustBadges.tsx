@@ -6,20 +6,29 @@ import { useMediaQuery } from '@/components/ui/3d-carousel';
 
 const awards = [
   {
-    name: 'BBB A+ Rating',
+    name: 'BBB Accredited',
     image: '/images/awards/bbb-accredited.webp',
-  },
-  {
-    name: 'MDRT Top of Table',
-    image: '/images/awards/mdrt-logo.webp',
+    description: 'Better Business Bureau accreditation demonstrates our commitment to ethical business practices and superior customer service standards.',
   },
   {
     name: 'ThreeBestRated',
     image: '/images/awards/three-best-rated.webp',
+    description: 'Recognized as one of the top three financial planning firms based on customer reviews, satisfaction, and service excellence.',
+  },
+  {
+    name: 'MDRT Top of Table',
+    image: '/images/awards/mdrt-logo.webp',
+    description: "Million Dollar Round Table's most prestigious recognition, reserved for top 1% of financial professionals worldwide.",
   },
   {
     name: 'Consumer Choice Award',
     image: '/images/awards/consumer-choice.webp',
+    description: 'Voted by consumers as an outstanding business demonstrating excellence in financial advisory services in our local market.',
+  },
+  {
+    name: 'Top 100 Magazine',
+    image: '/images/awards/top-100.webp',
+    description: 'Featured in Top 100 Magazine for excellence in financial services and commitment to client success.',
   },
 ];
 
@@ -91,20 +100,21 @@ const AwardsCarousel = memo(
               onClick={() => handleClick(award, i)}
             >
               <div className="relative w-full h-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col border border-border/20">
-                <div className="flex-1 p-3 flex items-center justify-center">
+                <div className="h-20 p-2 flex items-center justify-center">
                   <motion.img
                     src={award.image}
                     alt={award.name}
                     layoutId={`img-${award.name}`}
-                    className="pointer-events-none max-w-full max-h-full object-contain"
+                    className="pointer-events-none max-h-full w-auto object-contain"
                     initial={{ filter: 'blur(4px)' }}
                     layout="position"
                     animate={{ filter: 'blur(0px)' }}
                     transition={transition}
                   />
                 </div>
-                <div className="p-2 bg-background/50">
-                  <h3 className="text-foreground font-medium text-[10px] text-center leading-tight">{award.name}</h3>
+                <div className="flex-1 p-3 bg-background/50 flex flex-col">
+                  <h3 className="text-foreground font-semibold text-xs mb-1 text-center">{award.name}</h3>
+                  <p className="text-muted-foreground text-[9px] leading-tight text-center">{award.description}</p>
                 </div>
               </div>
             </motion.div>
@@ -174,27 +184,30 @@ export default function TrustBadges() {
                 style={{ willChange: 'opacity' }}
                 transition={transitionOverlay}
               >
-                <Card className="relative max-w-2xl max-h-[80vh] overflow-hidden">
-                  <motion.img
-                    layoutId={`img-${activeAward.name}`}
-                    src={activeAward.image}
-                    alt={activeAward.name}
-                    className="w-full h-full object-cover rounded-lg"
-                    initial={{ scale: 0.5 }}
-                    animate={{ scale: 1 }}
-                    transition={{
-                      delay: 0.5,
-                      duration: 0.5,
-                      ease: [0.25, 0.1, 0.25, 1],
-                    }}
-                    style={{
-                      willChange: 'transform',
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#09342B]/90 to-transparent flex items-end p-8">
-                    <h3 className="text-white font-bold text-3xl">{activeAward.name}</h3>
+                <div className="relative max-w-2xl bg-white rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="p-12 flex items-center justify-center bg-white">
+                    <motion.img
+                      layoutId={`img-${activeAward.name}`}
+                      src={activeAward.image}
+                      alt={activeAward.name}
+                      className="max-h-64 w-auto object-contain"
+                      initial={{ scale: 0.5 }}
+                      animate={{ scale: 1 }}
+                      transition={{
+                        delay: 0.5,
+                        duration: 0.5,
+                        ease: [0.25, 0.1, 0.25, 1],
+                      }}
+                      style={{
+                        willChange: 'transform',
+                      }}
+                    />
                   </div>
-                </Card>
+                  <div className="p-8 bg-background/80 border-t border-border">
+                    <h3 className="text-foreground font-bold text-2xl mb-3 text-center">{activeAward.name}</h3>
+                    <p className="text-muted-foreground text-base leading-relaxed text-center">{activeAward.description}</p>
+                  </div>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
