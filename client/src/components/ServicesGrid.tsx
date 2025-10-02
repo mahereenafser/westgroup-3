@@ -60,14 +60,14 @@ export default function ServicesGrid() {
         <div className="relative rounded-3xl overflow-hidden p-8 md:p-12">
           {/* Background image */}
           <div
-            className="absolute inset-0 bg-cover bg-center"
+            className="absolute inset-0 bg-cover bg-center z-0"
             style={{
               backgroundImage: 'url(/images/money-1.jpg)',
             }}
           />
 
-          {/* Dark emerald green overlay */}
-          <div className="absolute inset-0 bg-primary opacity-85" />
+          {/* Very dark blackish emerald green overlay */}
+          <div className="absolute inset-0 bg-[#051910] opacity-70 z-[1]" />
 
           {/* Content */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
