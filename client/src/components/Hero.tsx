@@ -4,10 +4,10 @@ import { Boxes } from '@/components/ui/background-boxes';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background min-h-screen flex items-center">
-      <div className="absolute inset-0 w-full h-full bg-background z-20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,white)] pointer-events-none" />
+    <section className="relative overflow-hidden bg-background min-h-screen flex items-center">
       <Boxes />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full relative z-20">
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-background/80 z-10 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,black)] pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full relative z-30">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <div className="flex justify-center">

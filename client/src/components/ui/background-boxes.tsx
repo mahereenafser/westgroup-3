@@ -7,16 +7,16 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(150).fill(1);
   const cols = new Array(100).fill(1);
 
-  // Pastel colors: green, yellow, white, blue
+  // Vibrant pastel colors: green, yellow, white, blue
   const colors = [
-    "rgb(216, 249, 216)", // pastel green
-    "rgb(220, 252, 231)", // light pastel green
-    "rgb(254, 252, 232)", // pastel yellow
-    "rgb(255, 251, 235)", // light pastel yellow
-    "rgb(240, 249, 255)", // pastel blue
-    "rgb(224, 242, 254)", // light pastel blue
-    "rgb(250, 250, 250)", // off-white
-    "rgb(245, 255, 250)", // mint white
+    "rgba(200, 255, 200, 0.6)", // bright pastel green
+    "rgba(180, 240, 180, 0.5)", // light pastel green
+    "rgba(255, 250, 180, 0.6)", // bright pastel yellow
+    "rgba(255, 245, 200, 0.5)", // light pastel yellow
+    "rgba(180, 230, 255, 0.6)", // bright pastel blue
+    "rgba(200, 240, 255, 0.5)", // light pastel blue
+    "rgba(255, 255, 255, 0.4)", // white
+    "rgba(230, 255, 245, 0.5)", // mint white
   ];
 
   const getRandomColor = () => {
@@ -37,7 +37,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {rows.map((_, i) => (
         <motion.div
           key={`row` + i}
-          className="w-16 h-8 border-l border-primary/10 relative"
+          className="w-16 h-8 border-l border-primary/30 relative"
         >
           {cols.map((_, j) => (
             <motion.div
@@ -49,7 +49,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                 transition: { duration: 2 },
               }}
               key={`col` + j}
-              className="w-16 h-8 border-r border-t border-primary/10 relative"
+              className="w-16 h-8 border-r border-t border-primary/30 relative bg-primary/5"
             >
               {j % 2 === 0 && i % 2 === 0 ? (
                 <svg
@@ -58,7 +58,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-primary/10 stroke-[1px] pointer-events-none"
+                  className="absolute h-6 w-10 -top-[14px] -left-[22px] text-primary/30 stroke-[1px] pointer-events-none"
                 >
                   <path
                     strokeLinecap="round"
