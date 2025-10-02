@@ -61,10 +61,10 @@ function ElegantShape({
                         "absolute inset-0 rounded-full",
                         "bg-gradient-to-r to-transparent",
                         gradient,
-                        "backdrop-blur-[2px] border-2 border-foreground/[0.05]",
-                        "shadow-[0_8px_32px_0_rgba(44,45,46,0.05)]",
+                        "backdrop-blur-[2px] border-2 border-foreground/[0.15]",
+                        "shadow-[0_8px_32px_0_rgba(44,45,46,0.15)]",
                         "after:absolute after:inset-0 after:rounded-full",
-                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(216,249,184,0.1),transparent_70%)]"
+                        "after:bg-[radial-gradient(circle_at_50%_50%,rgba(216,249,184,0.3),transparent_70%)]"
                     )}
                 />
             </motion.div>
@@ -96,7 +96,7 @@ function HeroGeometric({
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.15] via-transparent to-accent/[0.08] blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.25] via-transparent to-accent/[0.15] blur-3xl" />
 
             <div className="absolute inset-0 overflow-hidden">
                 <ElegantShape
@@ -104,7 +104,7 @@ function HeroGeometric({
                     width={600}
                     height={140}
                     rotate={12}
-                    gradient="from-primary/[0.12]"
+                    gradient="from-primary/[0.25]"
                     className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
                 />
 
@@ -113,7 +113,7 @@ function HeroGeometric({
                     width={500}
                     height={120}
                     rotate={-15}
-                    gradient="from-accent/[0.12]"
+                    gradient="from-accent/[0.25]"
                     className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
                 />
 
@@ -122,7 +122,7 @@ function HeroGeometric({
                     width={300}
                     height={80}
                     rotate={-8}
-                    gradient="from-primary/[0.10]"
+                    gradient="from-primary/[0.20]"
                     className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
                 />
 
@@ -131,7 +131,7 @@ function HeroGeometric({
                     width={200}
                     height={60}
                     rotate={20}
-                    gradient="from-accent/[0.10]"
+                    gradient="from-accent/[0.20]"
                     className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
                 />
 
@@ -140,7 +140,7 @@ function HeroGeometric({
                     width={150}
                     height={40}
                     rotate={-25}
-                    gradient="from-primary/[0.08]"
+                    gradient="from-primary/[0.18]"
                     className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
                 />
             </div>
@@ -152,10 +152,10 @@ function HeroGeometric({
                         variants={fadeUpVariants}
                         initial="hidden"
                         animate="visible"
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card/[0.6] backdrop-blur-sm border border-border mb-8 md:mb-12"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card backdrop-blur-sm border border-border mb-8 md:mb-12"
                     >
-                        <Circle className="h-2 w-2 fill-primary/80" />
-                        <span className="text-sm text-muted-foreground tracking-wide">
+                        <Circle className="h-2 w-2 fill-primary" />
+                        <span className="text-sm text-foreground/70 tracking-wide font-medium">
                             {badge}
                         </span>
                     </motion.div>
@@ -167,13 +167,13 @@ function HeroGeometric({
                         animate="visible"
                     >
                         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/80">
+                            <span className="text-foreground">
                                 {title1}
                             </span>
                             <br />
                             <span
                                 className={cn(
-                                    "bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground/90 to-accent"
+                                    "bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-accent"
                                 )}
                             >
                                 {title2}
@@ -187,7 +187,7 @@ function HeroGeometric({
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
+                        <p className="text-base sm:text-lg md:text-xl text-foreground/60 mb-8 leading-relaxed tracking-wide max-w-xl mx-auto px-4">
                             Comprehensive financial planning for high-net-worth individuals and families in Vancouver, BC. Over 3,000 clients served with tax-efficient expertise.
                         </p>
                     </motion.div>
