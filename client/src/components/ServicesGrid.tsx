@@ -46,20 +46,22 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
-      {/* Section background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{
-          backgroundImage: 'url(/images/money-1.jpg)',
-        }}
-      />
+    <section className="py-20 md:py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative overflow-hidden rounded-3xl">
+          {/* Section background image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+              backgroundImage: 'url(/images/money-1.jpg)',
+            }}
+          />
 
-      {/* Dark green overlay on section */}
-      <div className="absolute inset-0 bg-[#09342B]/60 z-[1]" />
+          {/* Dark green overlay on section */}
+          <div className="absolute inset-0 bg-[#09342B]/60 z-[1]" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Content */}
+          <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-services-title">
             Comprehensive Financial Solutions
@@ -92,6 +94,8 @@ export default function ServicesGrid() {
               </Card>
             );
           })}
+        </div>
+          </div>
         </div>
       </div>
     </section>
