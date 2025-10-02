@@ -51,7 +51,7 @@ export default function ServicesGrid() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: 'url(../../../public/images/money-1.jpg)',
+          backgroundImage: 'url(/images/money-1.jpg)',
         }}
       />
 

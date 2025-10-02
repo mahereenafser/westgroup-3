@@ -47,10 +47,10 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
+    <div className={cn("max-w-sm md:max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-96 md:h-[500px] w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -114,13 +114,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-foreground">
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground mt-2">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-muted-foreground mt-8">
+            <motion.p className="text-xl md:text-2xl text-muted-foreground mt-8 leading-relaxed">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -149,15 +149,15 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-10 w-10 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center group/button transition-colors"
+              className="h-14 w-14 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center group/button transition-colors"
             >
-              <ArrowLeft className="h-5 w-5 text-foreground group-hover/button:rotate-12 transition-transform duration-300" />
+              <ArrowLeft className="h-6 w-6 text-foreground group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
-              className="h-10 w-10 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center group/button transition-colors"
+              className="h-14 w-14 rounded-full bg-primary/20 hover:bg-primary/30 flex items-center justify-center group/button transition-colors"
             >
-              <ArrowRight className="h-5 w-5 text-foreground group-hover/button:-rotate-12 transition-transform duration-300" />
+              <ArrowRight className="h-6 w-6 text-foreground group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>
