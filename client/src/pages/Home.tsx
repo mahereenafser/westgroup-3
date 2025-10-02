@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import PortfolioDashboard from '@/components/PortfolioDashboard';
 import TrustBadges from '@/components/TrustBadges';
 import ServicesGrid from '@/components/ServicesGrid';
 import StatsSection from '@/components/StatsSection';
@@ -13,6 +14,7 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <PortfolioDashboard />
       <TrustBadges />
       <ServicesGrid />
       <StatsSection />

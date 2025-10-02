@@ -1,28 +1,27 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import dashboardImage from '@assets/generated_images/Wealth_management_dashboard_interface_ca584d43.png';
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
-            <div className="inline-block">
+            <div className="flex justify-center">
               <div className="px-4 py-2 bg-card rounded-full text-sm font-medium text-foreground border border-border" data-testid="text-badge">
                 Fee-Only Fiduciary Advisors
               </div>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold text-foreground leading-tight tracking-tight" data-testid="text-hero-title">
               Build Wealth Beyond Limits
             </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl" data-testid="text-hero-description">
+
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mx-auto" data-testid="text-hero-description">
               Comprehensive financial planning for high-net-worth individuals and families in Vancouver, BC. Over 3,000 clients served with tax-efficient expertise.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="group" data-testid="button-get-started">
                 Get Started
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -32,7 +31,7 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50">
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/50 max-w-2xl mx-auto">
               <div>
                 <div className="text-3xl font-bold text-foreground" data-testid="text-stat-clients">3000+</div>
                 <div className="text-sm text-muted-foreground">Clients Served</div>
@@ -45,18 +44,6 @@ export default function Hero() {
                 <div className="text-3xl font-bold text-foreground" data-testid="text-stat-experience">25+</div>
                 <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
-            </div>
-          </div>
-
-          <div className="relative lg:block mt-12 lg:mt-20" data-testid="img-hero-dashboard">
-            <div className="relative transform hover:scale-105 transition-transform duration-500 scale-125 lg:scale-150">
-              <img
-                src={dashboardImage}
-                alt="Wealth Management Dashboard"
-                className="rounded-2xl shadow-2xl border-4 border-primary/30"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 via-primary/20 to-accent/30 rounded-2xl mix-blend-multiply"></div>
-              <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-green-400/10 rounded-2xl"></div>
             </div>
           </div>
         </div>
