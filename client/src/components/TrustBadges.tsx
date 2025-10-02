@@ -99,7 +99,7 @@ const AwardsCarousel = memo(
               }}
               onClick={() => handleClick(award, i)}
             >
-              <div className="relative w-full h-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col border border-border/20">
+              <div className="relative w-full h-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col border border-border/20 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:z-50">
                 <div className="h-20 p-2 flex items-center justify-center">
                   <motion.img
                     src={award.image}
