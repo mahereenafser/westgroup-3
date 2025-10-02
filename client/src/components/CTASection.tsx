@@ -42,7 +42,6 @@ export default function CTASection() {
               alt="Financial Planning"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#09342B]/60 to-transparent" />
           </div>
 
           {/* Right Column - Card with Content */}
