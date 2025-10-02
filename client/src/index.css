@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* LIGHT MODE - Finns Design Theme */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -14,64 +14,65 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  --background: 0 0% 99%;
+  /* Finns color palette */
+  --background: 36 10% 94%; /* #f1f0ee soft neutral */
 
-  --foreground: 0 0% 10%;
+  --foreground: 0 0% 17%; /* #2c2d2e dark gray */
 
-  --border: 0 0% 90%;
+  --border: 36 10% 88%;
 
-  --card: 0 0% 100%;
+  --card: 0 0% 100%; /* white */
 
-  --card-foreground: 0 0% 10%;
+  --card-foreground: 0 0% 17%;
 
-  --card-border: 0 0% 94%;
+  --card-border: 36 10% 90%;
 
-  --sidebar: 100 60% 94%;
+  --sidebar: 88 85% 85%;
 
-  --sidebar-foreground: 0 0% 10%;
+  --sidebar-foreground: 0 0% 17%;
 
-  --sidebar-border: 100 50% 88%;
+  --sidebar-border: 88 75% 80%;
 
-  --sidebar-primary: 100 65% 88%;
+  --sidebar-primary: 88 85% 85%;
 
-  --sidebar-primary-foreground: 0 0% 10%;
+  --sidebar-primary-foreground: 0 0% 17%;
 
-  --sidebar-accent: 100 60% 92%;
+  --sidebar-accent: 88 80% 88%;
 
-  --sidebar-accent-foreground: 0 0% 10%;
+  --sidebar-accent-foreground: 0 0% 17%;
 
-  --sidebar-ring: 100 65% 88%;
+  --sidebar-ring: 88 85% 85%;
 
   --popover: 0 0% 100%;
 
-  --popover-foreground: 0 0% 10%;
+  --popover-foreground: 0 0% 17%;
 
-  --popover-border: 0 0% 90%;
+  --popover-border: 36 10% 88%;
 
-  --primary: 100 65% 88%;
+  --primary: 88 85% 85%; /* #d8f9b8 soft green */
 
-  --primary-foreground: 0 0% 10%;
+  --primary-foreground: 0 0% 17%;
 
-  --secondary: 0 0% 95%;
+  --secondary: 36 10% 94%;
 
-  --secondary-foreground: 0 0% 10%;
+  --secondary-foreground: 0 0% 17%;
 
-  --muted: 100 40% 96%;
+  --muted: 36 10% 96%;
 
   --muted-foreground: 0 0% 45%;
 
-  --accent: 100 60% 92%;
+  --accent: 88 80% 88%;
 
-  --accent-foreground: 0 0% 10%;
+  --accent-foreground: 0 0% 17%;
 
   --destructive: 0 72% 50%;
 
   --destructive-foreground: 0 0% 100%;
 
-  --input: 0 0% 85%;
-  --ring: 100 65% 88%;
+  --input: 36 10% 88%;
+  --ring: 88 85% 85%;
   --chart-1: 0 0% 20%;
-  --chart-2: 100 65% 75%;
+  --chart-2: 88 85% 75%;
   --chart-3: 170 50% 60%;
   --chart-4: 80 60% 50%;
   --chart-5: 200 60% 60%;
