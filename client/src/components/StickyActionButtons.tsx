@@ -18,19 +18,19 @@ export default function StickyActionButtons() {
       <LiquidButton
         size="icon"
         onClick={handleCall}
-        className="shadow-lg hover:shadow-xl transition-shadow"
+        className="shadow-lg hover:shadow-xl transition-shadow border-2 border-foreground/20"
         aria-label="Call us"
       >
-        <Phone className="h-5 w-5" />
+        <Phone className="h-5 w-5 text-foreground stroke-[2.5] drop-shadow-[0_0_8px_rgba(216,249,184,0.6)]" />
       </LiquidButton>
 
       <LiquidButton
         size="icon"
         onClick={handleMessage}
-        className="shadow-lg hover:shadow-xl transition-shadow"
+        className="shadow-lg hover:shadow-xl transition-shadow border-2 border-foreground/20"
         aria-label="Send message"
       >
-        <MessageCircle className="h-5 w-5" />
+        <MessageCircle className="h-5 w-5 text-foreground stroke-[2.5] drop-shadow-[0_0_8px_rgba(216,249,184,0.6)]" />
       </LiquidButton>
     </div>
   );
