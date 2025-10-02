@@ -1,13 +1,10 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Boxes } from '@/components/ui/background-boxes';
 
 export default function Hero() {
   return (
-    <section className="h-screen relative w-full overflow-hidden bg-slate-50 flex flex-col items-center justify-center">
-      <div className="absolute inset-0 w-full h-full bg-slate-50 z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-      <Boxes />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full relative z-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-primary/30 via-primary/15 to-background min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <div className="space-y-8">
             <div className="flex justify-center">
