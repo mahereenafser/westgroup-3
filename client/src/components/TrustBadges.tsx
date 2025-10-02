@@ -90,8 +90,8 @@ const AwardsCarousel = memo(
               }}
               onClick={() => handleClick(award, i)}
             >
-              <div className="relative w-full h-full bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col border border-border/20">
-                <div className="flex-1 p-6 flex items-center justify-center">
+              <div className="relative w-full h-full bg-white rounded-2xl shadow-md overflow-hidden flex flex-col border border-border/20">
+                <div className="flex-1 p-3 flex items-center justify-center">
                   <motion.img
                     src={award.image}
                     alt={award.name}
@@ -103,8 +103,8 @@ const AwardsCarousel = memo(
                     transition={transition}
                   />
                 </div>
-                <div className="p-4 bg-background/50">
-                  <h3 className="text-foreground font-semibold text-xs text-center">{award.name}</h3>
+                <div className="p-2 bg-background/50">
+                  <h3 className="text-foreground font-medium text-[10px] text-center leading-tight">{award.name}</h3>
                 </div>
               </div>
             </motion.div>
@@ -118,26 +118,24 @@ const AwardsCarousel = memo(
 export default function TrustBadges() {
   const [activeAward, setActiveAward] = useState<typeof awards[0] | null>(null);
   const [isCarouselActive, setIsCarouselActive] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const controls = useAnimation();
   const cards = useMemo(() => awards, []);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isCarouselActive) {
-      interval = setInterval(() => {
-        controls.start({
-          rotateY: '-=60',
-          transition: {
-            duration: 2,
-            ease: 'linear',
-          },
-        });
-      }, 3000);
+    if (isCarouselActive && !isHovered) {
+      controls.start({
+        rotateY: -360,
+        transition: {
+          duration: 20,
+          ease: 'linear',
+          repeat: Infinity,
+        },
+      });
+    } else {
+      controls.stop();
     }
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isCarouselActive, controls]);
+  }, [isCarouselActive, isHovered, controls]);
 
   const handleClick = (award: typeof awards[0]) => {
     setActiveAward(award);
@@ -201,7 +199,11 @@ export default function TrustBadges() {
             )}
           </AnimatePresence>
 
-          <div className="relative h-[300px] md:h-[350px] w-full overflow-hidden rounded-2xl">
+          <div
+            className="relative h-[150px] md:h-[180px] w-full overflow-hidden rounded-2xl"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <AwardsCarousel
               handleClick={handleClick}
               controls={controls}
