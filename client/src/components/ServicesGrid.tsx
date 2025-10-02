@@ -46,13 +46,25 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Section background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-0"
+        style={{
+          backgroundImage: 'url(/images/money-1.jpg)',
+        }}
+      />
+
+      {/* Dark green overlay on section */}
+      <div className="absolute inset-0 bg-[#09342B] opacity-75 z-[1]" />
+
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-services-title">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4" data-testid="text-services-title">
             Comprehensive Financial Solutions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-services-description">
+          <p className="text-lg text-white/80 max-w-2xl mx-auto" data-testid="text-services-description">
             Expert guidance across all aspects of wealth management and financial planning
           </p>
         </div>
@@ -63,34 +75,20 @@ export default function ServicesGrid() {
             return (
               <Card
                 key={index}
-                className="hover-elevate active-elevate-2 transition-all duration-200 cursor-pointer group relative overflow-hidden"
+                className="transition-all duration-300 cursor-pointer group bg-card/95 backdrop-blur-sm hover:scale-105 hover:shadow-2xl"
                 data-testid={`card-service-${index}`}
               >
-                {/* Background image */}
-                <div
-                  className="absolute inset-0 bg-cover bg-center z-0"
-                  style={{
-                    backgroundImage: 'url(/images/money-1.jpg)',
-                  }}
-                />
-
-                {/* Dark green overlay #09342B */}
-                <div className="absolute inset-0 bg-[#09342B] opacity-85 z-[1]" />
-
-                {/* Content */}
-                <div className="relative z-10">
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-[#12664F]/30 flex items-center justify-center mb-4 group-hover:bg-[#12664F]/50 transition-colors backdrop-blur-sm">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <CardTitle className="text-xl text-white">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-sm leading-relaxed text-white/80">
-                      {service.description}
-                    </CardDescription>
-                  </CardContent>
-                </div>
+                <CardHeader>
+                  <div className="w-12 h-12 rounded-lg bg-[#12664F]/30 flex items-center justify-center mb-4 group-hover:bg-[#12664F]/50 transition-colors">
+                    <Icon className="w-6 h-6 text-[#12664F] group-hover:text-[#09342B]" />
+                  </div>
+                  <CardTitle className="text-xl">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription className="text-sm leading-relaxed">
+                    {service.description}
+                  </CardDescription>
+                </CardContent>
               </Card>
             );
           })}
