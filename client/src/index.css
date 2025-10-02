@@ -27,17 +27,17 @@
 
   --card-border: 36 10% 90%;
 
-  --sidebar: 88 75% 70%;
+  --sidebar: 88 60% 55%;
 
   --sidebar-foreground: 0 0% 17%;
 
-  --sidebar-border: 88 65% 65%;
+  --sidebar-border: 88 50% 50%;
 
-  --sidebar-primary: 88 75% 70%;
+  --sidebar-primary: 88 60% 55%;
 
   --sidebar-primary-foreground: 0 0% 17%;
 
-  --sidebar-accent: 88 70% 73%;
+  --sidebar-accent: 88 55% 58%;
 
   --sidebar-accent-foreground: 0 0% 17%;
 
@@ -49,7 +49,7 @@
 
   --popover-border: 36 10% 88%;
 
-  --primary: 88 75% 70%; /* darker neon green */
+  --primary: 88 60% 55%; /* dark forest green with neon tint */
 
   --primary-foreground: 0 0% 17%;
 
@@ -61,7 +61,7 @@
 
   --muted-foreground: 0 0% 45%;
 
-  --accent: 88 70% 73%;
+  --accent: 88 55% 58%;
 
   --accent-foreground: 0 0% 17%;
 

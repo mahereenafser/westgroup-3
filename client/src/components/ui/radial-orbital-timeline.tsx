@@ -252,12 +252,15 @@ export default function RadialOrbitalTimeline({
                 </div>
 
                 {isExpanded && (
-                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-64 bg-card/90 backdrop-blur-lg border-border shadow-xl overflow-visible">
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-border"></div>
-                    <CardHeader className="pb-2">
-                      <div className="flex justify-between items-center">
+                  <Card className="absolute top-20 left-1/2 -translate-x-1/2 w-80 bg-card backdrop-blur-lg border border-primary/30 shadow-2xl shadow-primary/10 overflow-visible rounded-lg">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-px h-3 bg-primary/50"></div>
+                    <CardHeader className="pb-3 pt-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-2xl font-bold text-primary">
+                          {item.id}
+                        </span>
                         <Badge
-                          className={`px-2 text-xs ${getStatusStyles(
+                          className={`px-2 py-1 text-xs font-semibold ${getStatusStyles(
                             item.status
                           )}`}
                         >
@@ -267,42 +270,23 @@ export default function RadialOrbitalTimeline({
                             ? "IN PROGRESS"
                             : "PENDING"}
                         </Badge>
-                        <span className="text-xs font-mono text-muted-foreground">
-                          {item.date}
-                        </span>
                       </div>
-                      <CardTitle className="text-sm mt-2">
+                      <CardTitle className="text-lg font-bold text-foreground">
                         {item.title}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="text-xs text-foreground/80">
-                      <p>{item.content}</p>
-
-                      <div className="mt-4 pt-3 border-t border-border">
-                        <div className="flex justify-between items-center text-xs mb-1">
-                          <span className="flex items-center">
-                            <Zap size={10} className="mr-1" />
-                            Energy Level
-                          </span>
-                          <span className="font-mono">{item.energy}%</span>
-                        </div>
-                        <div className="w-full h-1 bg-muted rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-gradient-to-r from-primary to-accent"
-                            style={{ width: `${item.energy}%` }}
-                          ></div>
-                        </div>
-                      </div>
+                    <CardContent className="text-sm text-foreground/80 pb-4">
+                      <p className="leading-relaxed">{item.content}</p>
 
                       {item.relatedIds.length > 0 && (
-                        <div className="mt-4 pt-3 border-t border-border">
-                          <div className="flex items-center mb-2">
-                            <Link size={10} className="text-foreground/70 mr-1" />
-                            <h4 className="text-xs uppercase tracking-wider font-medium text-foreground/70">
-                              Connected Nodes
-                            </h4>
+                        <div className="mt-4 pt-4 border-t border-border/50">
+                          <div className="flex items-center gap-2 mb-2">
+                            <ArrowRight size={14} className="text-primary" />
+                            <span className="text-xs font-semibold text-foreground/70 uppercase tracking-wider">
+                              Next Step
+                            </span>
                           </div>
-                          <div className="flex flex-wrap gap-1">
+                          <div className="flex flex-wrap gap-2">
                             {item.relatedIds.map((relatedId) => {
                               const relatedItem = timelineData.find(
                                 (i) => i.id === relatedId
@@ -312,7 +296,7 @@ export default function RadialOrbitalTimeline({
                                   key={relatedId}
                                   variant="outline"
                                   size="sm"
-                                  className="flex items-center h-6 px-2 py-0 text-xs rounded-sm transition-all"
+                                  className="flex items-center h-7 px-3 py-0 text-xs font-medium rounded-md border-primary/30 hover:bg-primary/10 hover:border-primary transition-all"
                                   onClick={(e) => {
                                     e.stopPropagation();
                                     toggleItem(relatedId);
@@ -320,8 +304,8 @@ export default function RadialOrbitalTimeline({
                                 >
                                   {relatedItem?.title}
                                   <ArrowRight
-                                    size={8}
-                                    className="ml-1"
+                                    size={10}
+                                    className="ml-1.5"
                                   />
                                 </Button>
                               );
