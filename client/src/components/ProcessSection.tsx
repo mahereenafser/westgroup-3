@@ -50,9 +50,9 @@ const timelineData = [
 
 export default function ProcessSection() {
   return (
-    <section className="py-20 bg-background">
-      <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-process-title">
+    <section className="py-12 bg-background">
+      <div className="text-center mb-4">
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-2" data-testid="text-process-title">
           Our Proven 4-Step Process
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-process-description">

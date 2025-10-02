@@ -154,11 +154,11 @@ export default function RadialOrbitalTimeline({
 
   return (
     <div
-      className="w-full min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden py-20"
+      className="w-full flex flex-col items-center justify-center bg-background overflow-hidden py-8"
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative w-full max-w-4xl h-[600px] flex items-center justify-center">
+      <div className="relative w-full max-w-4xl h-[500px] flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}
