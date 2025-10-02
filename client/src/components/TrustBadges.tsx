@@ -2,25 +2,24 @@
 
 import { memo, useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useAnimation, useMotionValue, useTransform } from 'framer-motion';
-import { Card } from '@/components/ui/card';
 import { useMediaQuery } from '@/components/ui/3d-carousel';
 
 const awards = [
   {
     name: 'BBB A+ Rating',
-    image: '/awards/bbb-accredited.webp',
+    image: '/images/awards/bbb-accredited.webp',
   },
   {
     name: 'MDRT Top of Table',
-    image: '/awards/mdrt-logo.webp',
+    image: '/images/awards/mdrt-logo.webp',
   },
   {
     name: 'ThreeBestRated',
-    image: '/awards/three-best-rated.webp',
+    image: '/images/awards/three-best-rated.webp',
   },
   {
     name: 'Consumer Choice Award',
-    image: '/awards/consumer-choice.webp',
+    image: '/images/awards/consumer-choice.webp',
   },
 ];
 
@@ -91,8 +90,8 @@ const AwardsCarousel = memo(
               }}
               onClick={() => handleClick(award, i)}
             >
-              <Card className="relative w-full h-full bg-card border-2 border-primary/20 hover:border-primary/40 transition-all overflow-hidden group flex flex-col">
-                <div className="flex-1 p-4 flex items-center justify-center bg-white">
+              <div className="relative w-full h-full bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col border border-border/20">
+                <div className="flex-1 p-6 flex items-center justify-center">
                   <motion.img
                     src={award.image}
                     alt={award.name}
@@ -104,10 +103,10 @@ const AwardsCarousel = memo(
                     transition={transition}
                   />
                 </div>
-                <div className="p-3 bg-card border-t border-border">
-                  <h3 className="text-foreground font-semibold text-sm text-center">{award.name}</h3>
+                <div className="p-4 bg-background/50">
+                  <h3 className="text-foreground font-semibold text-xs text-center">{award.name}</h3>
                 </div>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </motion.div>
