@@ -60,13 +60,13 @@ export default function StatsSection() {
                 return (
                   <Card
                     key={index}
-                    className="w-32 transition-all duration-300 hover:scale-105 animate-float shadow-lg hover:shadow-xl bg-card/95 backdrop-blur-sm"
+                    className="w-32 h-32 transition-all duration-300 hover:scale-105 animate-float shadow-lg hover:shadow-xl bg-card/95 backdrop-blur-sm rounded-lg"
                     data-testid={`card-stat-${index}`}
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
                   >
-                    <CardContent className="pt-3 pb-3 px-3 text-center">
+                    <CardContent className="pt-3 pb-3 px-3 text-center h-full flex flex-col justify-center">
                       <div className="flex justify-center mb-1">
                         <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
                           <Icon className="w-3 h-3 text-foreground" />
