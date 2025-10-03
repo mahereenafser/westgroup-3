@@ -54,12 +54,9 @@ export default function ServicesGrid() {
           <div
             className="absolute inset-0 bg-cover bg-center z-0"
             style={{
-              backgroundImage: 'url(/images/money-1.jpg)',
+              backgroundImage: 'url(/images/scenery-1.jpg)',
             }}
           />
-
-          {/* Dark green overlay on section */}
-          <div className="absolute inset-0 bg-[#09342B]/60 z-[1]" />
 
           {/* Content */}
           <div className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 md:py-20">
