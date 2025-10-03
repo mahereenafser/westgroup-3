@@ -36,6 +36,7 @@ export default function RadialOrbitalTimeline({
     y: 0,
   });
   const [activeNodeId, setActiveNodeId] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
@@ -83,6 +84,16 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     let animationFrameId: number;
     let lastTimestamp = 0;
 
@@ -126,7 +137,8 @@ export default function RadialOrbitalTimeline({
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
+    // Reduced radius for mobile (120px) vs desktop (200px)
+    const radius = isMobile ? 120 : 200;
     const radian = (angle * Math.PI) / 180;
 
     const x = radius * Math.cos(radian) + centerOffset.x;
@@ -171,7 +183,7 @@ export default function RadialOrbitalTimeline({
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative w-full max-w-4xl h-[500px] flex items-center justify-center">
+      <div className="relative w-full max-w-4xl h-[400px] md:h-[500px] flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center"
           ref={orbitRef}
@@ -180,16 +192,16 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
-          <div className="absolute w-16 h-16 rounded-full bg-gradient-to-br from-primary via-accent to-primary/80 animate-pulse flex items-center justify-center z-10">
-            <div className="absolute w-20 h-20 rounded-full border border-primary/30 animate-ping opacity-70"></div>
+          <div className="absolute w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary via-accent to-primary/80 animate-pulse flex items-center justify-center z-10">
+            <div className="absolute w-16 h-16 md:w-20 md:h-20 rounded-full border border-primary/30 animate-ping opacity-70"></div>
             <div
-              className="absolute w-24 h-24 rounded-full border border-primary/20 animate-ping opacity-50"
+              className="absolute w-20 h-20 md:w-24 md:h-24 rounded-full border border-primary/20 animate-ping opacity-50"
               style={{ animationDelay: "0.5s" }}
             ></div>
-            <div className="w-8 h-8 rounded-full bg-primary/80 backdrop-blur-md"></div>
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-primary/80 backdrop-blur-md"></div>
           </div>
 
-          <div className="absolute w-96 h-96 rounded-full border border-border"></div>
+          <div className="absolute w-60 h-60 md:w-96 md:h-96 rounded-full border border-border"></div>
 
           {timelineData.map((item, index) => {
             const position = calculateNodePosition(index, timelineData.length);
