@@ -35,13 +35,19 @@ export default function CTASection() {
     <section className="py-20 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Image */}
+          {/* Left Column - Video */}
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&h=600&fit=crop"
-              alt="Corporate Financial Consultation"
+            <video
+              src="/videos/coins-video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover"
-            />
+              aria-label="Financial Success Visualization"
+            >
+              Your browser does not support the video tag.
+            </video>
           </div>
 
           {/* Right Column - Card with Content */}
