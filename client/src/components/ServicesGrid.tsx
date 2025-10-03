@@ -1,5 +1,6 @@
-import { TrendingUp, Shield, PiggyBank, FileText, Briefcase, Calculator, Building, Home } from 'lucide-react';
+import { TrendingUp, Shield, PiggyBank, FileText, Briefcase, Calculator, Building, Home, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { LiquidButton } from '@/components/ui/liquid-glass-button';
 
 const services = [
   {
@@ -96,6 +97,19 @@ export default function ServicesGrid() {
           })}
         </div>
           </div>
+        </div>
+
+        {/* View All Services Button - Outside the background image section */}
+        <div className="flex justify-center mt-8">
+          <LiquidButton
+            size="xl"
+            onClick={() => window.location.href = '/services'}
+            className="shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all border-2 border-primary/30 bg-card/80 backdrop-blur-md group"
+            aria-label="View All Our Services"
+          >
+            <span className="text-foreground font-semibold text-base">View All Our Services</span>
+            <ArrowRight className="h-5 w-5 text-foreground stroke-[2.5] drop-shadow-[0_0_12px_rgba(216,249,184,0.8)] group-hover:translate-x-1 transition-transform" />
+          </LiquidButton>
         </div>
       </div>
     </section>
