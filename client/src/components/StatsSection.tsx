@@ -67,11 +67,6 @@ export default function StatsSection() {
                     }}
                   >
                     <CardContent className="pt-3 pb-3 px-3 text-center h-full flex flex-col justify-center">
-                      <div className="flex justify-center mb-1">
-                        <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
-                          <Icon className="w-3 h-3 text-foreground" />
-                        </div>
-                      </div>
                       <div className={`text-lg font-bold mb-1 ${stat.color}`} data-testid={`text-stat-value-${index}`}>
                         {stat.value}
                       </div>
