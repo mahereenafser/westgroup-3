@@ -38,7 +38,7 @@ export default function CTASection() {
           {/* Left Column - Video */}
           <div className="relative h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
             <video
-              src="/videos/coins-video.mp4"
+              src="/videos/coins-2.mp4"
               autoPlay
               loop
               muted
