@@ -54,28 +54,28 @@ export default function StatsSection() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
 
             {/* Mobile: Mini cards stacked vertically on left side */}
-            <div className="absolute top-4 left-4 flex flex-col gap-3 md:hidden">
+            <div className="absolute top-4 left-4 flex flex-col gap-2 md:hidden max-h-[480px]">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (
                   <Card
                     key={index}
-                    className="w-40 text-center transition-all duration-300 hover:scale-110 animate-float shadow-xl hover:shadow-2xl bg-card/95 backdrop-blur-sm"
+                    className="w-32 transition-all duration-300 hover:scale-105 animate-float shadow-lg hover:shadow-xl bg-card/95 backdrop-blur-sm"
                     data-testid={`card-stat-${index}`}
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
                   >
-                    <CardContent className="pt-4 pb-4 px-3">
-                      <div className="flex justify-center mb-2">
-                        <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-                          <Icon className="w-4 h-4 text-foreground" />
+                    <CardContent className="pt-2 pb-2 px-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-3 h-3 text-foreground" />
+                        </div>
+                        <div className={`text-lg font-bold ${stat.color}`} data-testid={`text-stat-value-${index}`}>
+                          {stat.value}
                         </div>
                       </div>
-                      <div className={`text-2xl font-bold mb-1 ${stat.color}`} data-testid={`text-stat-value-${index}`}>
-                        {stat.value}
-                      </div>
-                      <div className="text-xs text-muted-foreground leading-tight">{stat.label}</div>
+                      <div className="text-[10px] text-muted-foreground leading-tight text-left pl-0">{stat.label}</div>
                     </CardContent>
                   </Card>
                 );
