@@ -66,16 +66,16 @@ export default function StatsSection() {
                       animationDelay: `${index * 0.1}s`,
                     }}
                   >
-                    <CardContent className="pt-2 pb-2 px-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center flex-shrink-0">
+                    <CardContent className="pt-3 pb-3 px-3 text-center">
+                      <div className="flex justify-center mb-1">
+                        <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
                           <Icon className="w-3 h-3 text-foreground" />
                         </div>
-                        <div className={`text-lg font-bold ${stat.color}`} data-testid={`text-stat-value-${index}`}>
-                          {stat.value}
-                        </div>
                       </div>
-                      <div className="text-[10px] text-muted-foreground leading-tight text-left pl-0">{stat.label}</div>
+                      <div className={`text-lg font-bold mb-1 ${stat.color}`} data-testid={`text-stat-value-${index}`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-[9px] text-muted-foreground leading-snug">{stat.label}</div>
                     </CardContent>
                   </Card>
                 );
