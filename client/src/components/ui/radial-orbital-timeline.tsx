@@ -83,20 +83,33 @@ export default function RadialOrbitalTimeline({
   };
 
   useEffect(() => {
-    let rotationTimer: NodeJS.Timeout;
+    let animationFrameId: number;
+    let lastTimestamp = 0;
 
-    if (autoRotate && viewMode === "orbital") {
-      rotationTimer = setInterval(() => {
+    const animate = (timestamp: number) => {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const deltaTime = timestamp - lastTimestamp;
+
+      if (deltaTime >= 50) {
         setRotationAngle((prev) => {
           const newAngle = (prev + 0.3) % 360;
           return Number(newAngle.toFixed(3));
         });
-      }, 50);
+        lastTimestamp = timestamp;
+      }
+
+      if (autoRotate && viewMode === "orbital") {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+
+    if (autoRotate && viewMode === "orbital") {
+      animationFrameId = requestAnimationFrame(animate);
     }
 
     return () => {
-      if (rotationTimer) {
-        clearInterval(rotationTimer);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
       }
     };
   }, [autoRotate, viewMode]);

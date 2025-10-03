@@ -52,10 +52,39 @@ export default function StatsSection() {
           >
             {/* Optional overlay for better contrast if needed */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20" />
+
+            {/* Mobile: Mini cards stacked vertically on left side */}
+            <div className="absolute top-4 left-4 flex flex-col gap-3 md:hidden">
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="w-40 text-center transition-all duration-300 hover:scale-110 animate-float shadow-xl hover:shadow-2xl bg-card/95 backdrop-blur-sm"
+                    data-testid={`card-stat-${index}`}
+                    style={{
+                      animationDelay: `${index * 0.1}s`,
+                    }}
+                  >
+                    <CardContent className="pt-4 pb-4 px-3">
+                      <div className="flex justify-center mb-2">
+                        <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+                          <Icon className="w-4 h-4 text-foreground" />
+                        </div>
+                      </div>
+                      <div className={`text-2xl font-bold mb-1 ${stat.color}`} data-testid={`text-stat-value-${index}`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-xs text-muted-foreground leading-tight">{stat.label}</div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Cards positioned at the bottom, half on/half off the image */}
-          <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2 px-4 sm:px-6 lg:px-8">
+          {/* Desktop: Cards positioned at the bottom, half on/half off the image */}
+          <div className="hidden md:block absolute bottom-0 left-0 right-0 transform translate-y-1/2 px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
@@ -86,8 +115,8 @@ export default function StatsSection() {
           </div>
         </div>
 
-        {/* Spacer to account for cards extending beyond image */}
-        <div className="h-48 md:h-56" />
+        {/* Spacer to account for cards extending beyond image on desktop */}
+        <div className="h-0 md:h-48 lg:h-56" />
       </div>
     </section>
   );

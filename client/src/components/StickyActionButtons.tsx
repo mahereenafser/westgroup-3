@@ -14,7 +14,7 @@ export default function StickyActionButtons() {
   };
 
   return (
-    <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-4">
+    <div className="fixed right-6 bottom-24 sm:bottom-6 z-50 flex flex-col gap-4">
       <LiquidButton
         size="xl"
         onClick={handleCall}
