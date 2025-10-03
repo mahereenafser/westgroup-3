@@ -60,17 +60,24 @@ export default function StatsSection() {
                 return (
                   <Card
                     key={index}
-                    className="w-32 h-32 transition-all duration-300 hover:scale-105 animate-float shadow-lg hover:shadow-xl bg-card/95 backdrop-blur-sm rounded-lg"
+                    className="w-40 h-20 transition-all duration-300 hover:scale-105 animate-float shadow-lg hover:shadow-xl bg-card/95 backdrop-blur-sm rounded-lg"
                     data-testid={`card-stat-${index}`}
                     style={{
                       animationDelay: `${index * 0.1}s`,
                     }}
                   >
-                    <CardContent className="pt-3 pb-3 px-3 text-center h-full flex flex-col justify-center">
-                      <div className={`text-lg font-bold mb-1 ${stat.color}`} data-testid={`text-stat-value-${index}`}>
-                        {stat.value}
+                    <CardContent className="p-2 text-center h-full flex items-center justify-center gap-2">
+                      <div className="flex-shrink-0">
+                        <div className="w-5 h-5 rounded-full bg-muted flex items-center justify-center">
+                          <Icon className="w-3 h-3 text-foreground" />
+                        </div>
                       </div>
-                      <div className="text-[9px] text-muted-foreground leading-snug">{stat.label}</div>
+                      <div className="flex-1 text-left">
+                        <div className={`text-base font-bold ${stat.color}`} data-testid={`text-stat-value-${index}`}>
+                          {stat.value}
+                        </div>
+                        <div className="text-[8px] text-muted-foreground leading-tight">{stat.label}</div>
+                      </div>
                     </CardContent>
                   </Card>
                 );
